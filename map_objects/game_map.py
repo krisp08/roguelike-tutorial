@@ -59,7 +59,11 @@ class GameMap:
                     if randint(0, 1) == 1:
                         #first move horizontally, then vertically
                         self.create_h_tunnel(prev_x, new_x, prev_y)
-                        self.create_v_tunnel(prev_x, new_x, new_y)
+                        self.create_v_tunnel(prev_y, new_y, new_x)
+                    else:
+                        #first move vertically, then horizantally
+                        self.create_v_tunnel(prev_y, new_y, prev_x)
+                        self.create_h_tunnel(prev_x, new_x, new_y)
 
                 # Finally, append the new room to the list
                 rooms.append(new_room)
